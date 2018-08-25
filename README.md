@@ -19,7 +19,7 @@ The function's body must be indent with tab :
 
     fuc hello_world_function  
         "hello world"  
-    print(hello_world_function)
+    print(hello_world_function())
 
 A recursive function with one argument :
 
@@ -35,7 +35,7 @@ A `if` on each line do the pattern-matching, no need on the last one (match all 
     fuc sum list
         0 if len(list) == 0
 	    list[0] + sum(list[1:])  
-    print(sum[1,2,3]))
+    print(sum([1,2,3]))
     6
 
     fuc reverse list
