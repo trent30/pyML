@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python pyml.py --compile $1 | grep -Ev "^$"
+python parser/parser.py --compile-to-python $1
