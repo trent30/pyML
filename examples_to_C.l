@@ -7,7 +7,7 @@ fuc inc g
 	g+1
 
 # The trick to write C code directly is to comment with `"""`
-# The same trick is use to write the `main` function (see below).
+# The same trick to write the `main` function (see below).
 
 """
 #include <stdio.h>

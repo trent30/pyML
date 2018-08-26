@@ -27,7 +27,7 @@ fist(inc(42))
 # les fonctions récursives se déclarent comme n'importe quelle fonction
 # le pattern-matching se fait avec un simple `if`
 # la dernière ligne concerne tous les autres cas ( équivalent du `_` en Ocaml )
-# La fonction factorielle est un exemple de fonction récursive, :
+# La fonction factorielle est un exemple de fonction récursive :
 
 fuc fac foc
 	1 if foc==1 

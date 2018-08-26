@@ -10,6 +10,9 @@ Just run your script.
 `./compyle.sh script.l > script.py`  
 Compile your PyML script in Python script.
 
+`./compile_to_C.sh script.l > script.c`  
+Compile your PyML script in C file.
+
 
 ## Syntax & examples
 
@@ -21,7 +24,7 @@ The function's body must be indent with tab :
         "hello world"  
     print(hello_world_function())
 
-A recursive function with one argument :
+The factorial, a recursive function :
 
     fuc fac n
         1 if n == 1 
@@ -48,4 +51,6 @@ See more example in [exemples.l](exemples.l)
 
 ## Types & operators
 
-Sine the interpreter is in Python, all types/operators/functions/modules available in Python are available in PyML.
+Since the interpreter is in Python, all types/operators/functions/modules available in Python are available in PyML.
+
+If you transpile in C, only C type are available.
