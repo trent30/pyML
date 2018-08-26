@@ -4,12 +4,36 @@
 import sys
 import rm_space as rm
 
+def switch( b ):
+	if b == True:
+		return False
+	return True
+	
+def in_com( d ):
+	b = False
+	i = 0
+	r = []
+	while ( i < len(d) ):
+		if d[i][:3] == '"""':
+			b = switch(b)
+		if b is True:
+			r.append(i)
+		i += 1
+	if b:
+		print('Error : `"""` not close !')
+		exit(-2)
+	return r
+	
 def main( filename, to):
+	e = ""
+	d = open( filename ).read().split("\n")
 	if to == "--compile-to-python":
 		import to_python as parser
-	d = open( filename ).read().split("\n")
-	e = "def %s(fuck): print(fuck)\n\n" % RESERVED["print"]
-	e += "%s = lambda fist, fuck : [i for i in map(fist, fuck)]\n\n" % RESERVED["map"]
+		e = "def %s(fuck): print(fuck)\n\n" % RESERVED["print"]
+		e += "%s = lambda fist, fuck : [i for i in map(fist, fuck)]\n\n" % RESERVED["map"]
+	if to == "--compile-to-C":
+		import to_C as parser
+	comments = in_com( d )
 	current_line_number = -1
 	function = []
 	
@@ -27,7 +51,10 @@ def main( filename, to):
 				line = rm.remove_space(d[current_line_number])
 			e += parser.parse_function( function )
 		else:
-			e += parser.parse_other(rm.remove_space(d[current_line_number])) + "\n"
+			if to == "--compile-to-C" and current_line_number in comments:
+				e += parser.parse_other(rm.remove_space(d[current_line_number])) + "\n"
+			if to == "--compile-to-python":
+				e += parser.parse_other(rm.remove_space(d[current_line_number])) + "\n"
 	return e
 	
 if __name__ == "__main__":
@@ -41,6 +68,11 @@ if __name__ == "__main__":
 	
 	if sys.argv[1]=="--compile-to-python":
 		print(main(sys.argv[2], "--compile-to-python"))
-	else:
-		e = main(sys.argv[1], "--compile-to-python")
-		eval(compile(e, e, "exec"))
+		exit(0)
+		
+	if sys.argv[1]=="--compile-to-C":
+		print(main(sys.argv[2], "--compile-to-C"))
+		exit(0)
+	
+	e = main(sys.argv[1], "--compile-to-python")
+	eval(compile(e, e, "exec"))

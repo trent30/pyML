@@ -23,7 +23,11 @@ def parse_function( l ):
 		return ""
 	r = function_name_args(l[0])
 	i = 1
+	com = ""
 	while i < len(l):
-		r += rt(l[i]) + " else "
+		if l[i][:2] == '\t#':
+			com += l[i][1:]+"\n"
+		else:
+			r += rt(l[i]) + " else "
 		i += 1
-	return r[:-6] + "\n"
+	return com + r[:-6] + "\n"
