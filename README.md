@@ -18,7 +18,7 @@ Compile your PyML script in C file.
 
 The syntax is clean, the keyword `fuc` declare a function followed by name and argument(s) :
 fuc <lt>name<gt> arg_1 arg_2 ... arg_n  
-The function's body must be indent with tab :
+The function's body must be indent with TAB (not space):
 
     fuc hello_world_function  
         "hello world"  
@@ -37,13 +37,13 @@ A `if` on each line do the pattern-matching, no need on the last one (match all 
 
     fuc sum list
         0 if len(list) == 0
-	    list[0] + sum(list[1:])  
+        list[0] + sum(list[1:])  
     print(sum([1,2,3]))
     6
 
     fuc reverse list
-	    [] if len(list)==0
-	    [list[-1]] + reverse(list[:-1])   
+        [] if len(list)==0
+        [list[-1]] + reverse(list[:-1])   
     print(reverse([1,2,3]))
     [3, 2, 1]
 

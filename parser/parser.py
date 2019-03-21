@@ -40,7 +40,7 @@ def main( filename, to):
 	while current_line_number < len(d) - 1:
 		current_line_number += 1
 		line = rm.remove_space(d[current_line_number])
-			
+		
 		if line[:3] == RESERVED["function"]:
 			function = [line]
 			current_line_number += 1

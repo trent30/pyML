@@ -98,7 +98,7 @@ fist(map(inc,[1,2,3]))
 
 # Attention, si vous utilisez python3 vous obtiendrez <map object at 0x7f2b84836828>
 # Pour éviter cela vous pouvez utilisez la fonction `fap`
-# L'utilisation de plus de 3 fap sur une même ligne est déconseillé par l'église.
+# L'utilisation de plus de 3 fap sur une même ligne est déconseillée par l'église.
 
 fist(fap(inc,[1,2,3]))
 # [2, 3, 4]
